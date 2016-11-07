@@ -78,7 +78,7 @@ def getRadians(deg):
     return (deg / 180.0) * math.pi
 
 
-class projectile(pygame.sprite.Sprite):
+class Projectile(pygame.sprite.Sprite):
     def __init__(self, spriteImgList, screen, X, Y, screenX, screenY):
         pygame.sprite.Sprite.__init__(self)
         self.screenX = screenX
@@ -249,9 +249,9 @@ class projectile(pygame.sprite.Sprite):
         self.rect.centery = round(self.Y(), 1)
 
 
-class angryThing(projectile):
+class Asteroid(Projectile):
     def __init__(self, spriteImg, screen, X, Y, screenX, screenY, which):
-        projectile.__init__(self, spriteImg, screen, X, Y, screenX, screenY)
+        Projectile.__init__(self, spriteImg, screen, X, Y, screenX, screenY)
         self.colldebounce = 0
         self.shielded = -1
         self.state[0, 1] = float(random.randint(-200, 200)) / 100.0

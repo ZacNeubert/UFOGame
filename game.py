@@ -29,17 +29,17 @@ def playth(sound):
 def getAsteroidFromWormhole(white, screenX, screenY):
     mod = 50
     playth("bloop.wav")
-    return functions.angryThing(angryImg, screen, random.randint(white.centerX() - mod, white.centerX() + mod),
-                                random.randint(white.centerY() - mod, white.centerY() + mod), screenX, screenY, x)
+    return functions.Asteroid(angryImg, screen, random.randint(white.centerX() - mod, white.centerX() + mod),
+                              random.randint(white.centerY() - mod, white.centerY() + mod), screenX, screenY, x)
 
 
 def getAsteroid(screenX, screenY):
     mod = 50
     x = random.randint(-mod, screenX)
     if x > 0:
-        return functions.angryThing(angryImg, screen, x, -10, screenX, screenY, x)
+        return functions.Asteroid(angryImg, screen, x, -10, screenX, screenY, x)
     else:
-        return functions.angryThing(angryImg, screen, x, random.randint(mod, screenY - mod), screenX, screenY, x)
+        return functions.Asteroid(angryImg, screen, x, random.randint(mod, screenY - mod), screenX, screenY, x)
 
 
 pygame.init()
@@ -145,17 +145,17 @@ while True:
     #    font = pygame.font.Font("impact.ttf", 20)
 
     # set up sprites
-    cat = functions.projectile(spriteImgList, screen, screenX / 2, screenY / 2, screenX, screenY)
+    cat = functions.Projectile(spriteImgList, screen, screenX / 2, screenY / 2, screenX, screenY)
     cat.getShieldSprites(shieldImgList)
     if astBool:
-        angryThings = [
-            functions.angryThing(angryImg, screen, random.randint(50, screenX - 50), random.randint(50, screenY - 50),
-                                 screenX, screenY, x) for x in range(5)]
+        asteroids = [
+            functions.Asteroid(angryImg, screen, random.randint(50, screenX - 50), random.randint(50, screenY - 50),
+                               screenX, screenY, x) for x in range(5)]
     else:
-        angryThings = []
+        asteroids = []
     spriteGroup.add(cat)
     #    spriteGroup = pygame.sprite.Group(cat)
-    for a in angryThings:
+    for a in asteroids:
         spriteGroup.add(a)
 
     L = False
@@ -304,7 +304,7 @@ while True:
 
                 #####################################################
         spriteGroup.update()
-        for a in angryThings:
+        for a in asteroids:
             a.setAccX(0)
             a.setAccY(0)
             for worm in wormholes:
@@ -323,7 +323,7 @@ while True:
                         playth("explosion.wav")
                         lose = True
                         cat.kill()
-                for b in angryThings:
+                for b in asteroids:
                     if b is not a:
                         if pygame.sprite.collide_rect(a, b):
                             #                            print "collision detected"
@@ -352,11 +352,11 @@ while True:
         if score > asteroidthresh and astBool:
             asteroidthresh += 1000
             if wormBool:
-                angryThings.append(getAsteroidFromWormhole(wormholes[0].white, screenX, screenY))
-                spriteGroup.add(angryThings[-1])
+                asteroids.append(getAsteroidFromWormhole(wormholes[0].white, screenX, screenY))
+                spriteGroup.add(asteroids[-1])
             else:
-                angryThings.append(getAsteroid(screenX, screenY))
-                spriteGroup.add(angryThings[-1])
+                asteroids.append(getAsteroid(screenX, screenY))
+                spriteGroup.add(asteroids[-1])
 
         if score > lazerthresh and lazBool:
             lazerthresh += 400
