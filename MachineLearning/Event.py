@@ -21,3 +21,7 @@ class Event(object):
     @staticmethod
     def get_down():
         return Event(pygame.KEYDOWN, pygame.K_DOWN)
+
+    @staticmethod
+    def do_nothing():
+        return Event(pygame.KEYDOWN, 277)

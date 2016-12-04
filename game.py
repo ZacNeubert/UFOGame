@@ -1,15 +1,14 @@
 import argparse
-import random
-import pygame
-import math
-import sys
+from copy import copy
+from time import sleep, time
+
 import functions
+from MachineLearning.Event import Event
 from MachineLearning.RandomGamePlayer import RandomGamePlayer
 from MachineLearning.RobotGamePlayer import RobotGamePlayer
-from scoring import *
-from time import time, sleep
-from sound import play
+from MachineLearning.TruthHandler import Recorder
 from hazards import *
+from scoring import *
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--human', action='store_true')
@@ -29,7 +28,7 @@ def playth(sound):
 def getAsteroidFromWormhole(white, screenX, screenY):
     mod = 50
     playth("bloop.wav")
-    return functions.Asteroid(angryImg, screen, random.randint(white.centerX() - mod, white.centerX() + mod),
+    return functions.Asteroid(asteroidImg, screen, random.randint(white.centerX() - mod, white.centerX() + mod),
                               random.randint(white.centerY() - mod, white.centerY() + mod), screenX, screenY, x)
 
 
@@ -37,9 +36,9 @@ def getAsteroid(screenX, screenY):
     mod = 50
     x = random.randint(-mod, screenX)
     if x > 0:
-        return functions.Asteroid(angryImg, screen, x, -10, screenX, screenY, x)
+        return functions.Asteroid(asteroidImg, screen, x, -10, screenX, screenY, x)
     else:
-        return functions.Asteroid(angryImg, screen, x, random.randint(mod, screenY - mod), screenX, screenY, x)
+        return functions.Asteroid(asteroidImg, screen, x, random.randint(mod, screenY - mod), screenX, screenY, x)
 
 
 pygame.init()
@@ -57,7 +56,8 @@ def goMenu():
     gamemenu = menu([button(bimages[r], (screenX / 2) - 90, (60 + r * 90)) for r in range(len(bimages))])
     for but in gamemenu.buttonList:
         spriteGroup.add(but)
-    pickedMode = False
+    pickedMode = True
+    gamemenu.bindex = 0
     while not pickedMode:
         spriteGroup.update()
         for event in pygame.event.get():
@@ -91,7 +91,7 @@ def goMenu():
 backgroundImg = "stars.png"
 spriteImgList = ["ufo/uforotate/ufo{}.png".format(r * 5) for r in range(int(90 / 5))]
 spriteImgList.append("ufo/ufodeadsm.png")
-angryImg = ["Hazards/asteroids/asteroid.png"]
+asteroidImg = ["Hazards/asteroids/asteroid.png"]
 lazerlist = []
 shieldImgList = ["ufo/uforotate/ufoshield%r.png" % (r * 5) for r in range(int(90 / 5))]
 lazersounds = ["lazers/base laser%s" % s for s in [".wav", "+1.1.wav", "+4.1.wav", "+6.2.wav"]]
@@ -112,6 +112,8 @@ level = 0
 astBool = False
 lazBool = False
 wormBool = False
+old_ufo = None
+old_asteroids = None
 
 spriteGroup, level, astBool, lazBool, wormBool = goMenu()
 
@@ -121,7 +123,7 @@ for event in pygame.event.get():
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_c:
             spriteImgList = ["psprite.png", "psprite.png", "ufo/ufodeadsm.png"]
-            angryImg = ["sad2.png"]
+            asteroidImg = ["sad2.png"]
             shieldImgList = ["pspriteshield.png" for n in range(len(spriteImgList))]
             backgroundImg = "altBackground.jpg"
             play("happy.wav")
@@ -133,8 +135,8 @@ if not riffPlayed:
 total_frames = 0
 scores = []
 while True:
-    #print("Starting game")
-    #print(score)
+    # print("Starting game")
+    # print(score)
 
     background_img = pygame.image.load(backgroundImg).convert()
     background = pygame.Surface(screen.get_size())
@@ -145,15 +147,15 @@ while True:
     #    font = pygame.font.Font("impact.ttf", 20)
 
     # set up sprites
-    cat = functions.Projectile(spriteImgList, screen, screenX / 2, screenY / 2, screenX, screenY)
-    cat.getShieldSprites(shieldImgList)
+    ufo = functions.Projectile(spriteImgList, screen, screenX / 2, screenY / 2, screenX, screenY)
+    ufo.getShieldSprites(shieldImgList)
     if astBool:
         asteroids = [
-            functions.Asteroid(angryImg, screen, random.randint(50, screenX - 50), random.randint(50, screenY - 50),
-                               screenX, screenY, x) for x in range(5)]
+            functions.Asteroid(asteroidImg, screen, random.randint(50, screenX - 50), random.randint(50, screenY - 50),
+                               screenX, screenY, x) for x in range(1)]
     else:
         asteroids = []
-    spriteGroup.add(cat)
+    spriteGroup.add(ufo)
     #    spriteGroup = pygame.sprite.Group(cat)
     for a in asteroids:
         spriteGroup.add(a)
@@ -171,8 +173,8 @@ while True:
     gameRestart = False
 
     ################### Initialize startup shield
-    cat.shields = 3
-    cat.shielded = 45
+    ufo.shields = 3
+    ufo.shielded = 0
 
     timemult = 1000
     framerate = 90
@@ -215,7 +217,12 @@ while True:
             D = False
             R = False
 
-        gamestate = None
+        #projectiles = copy(asteroids)
+        #projectiles.append(ufo)
+        #gamestate = Recorder.get_game_state(projectiles)
+        gamestate = Recorder.get_grid_game_state(ufo, asteroids, screenX, screenY)
+        old_ufo = copy(ufo)
+        old_asteroids = copy(asteroids)
 
         if args.human:
             eventsource = pygame.event.get()
@@ -238,7 +245,7 @@ while True:
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     D = True
                 if event.key == pygame.K_RCTRL or event.key == pygame.K_e:
-                    threads.append(cat.startShield())
+                    threads.append(ufo.startShield())
                 if event.key == pygame.K_SPACE:
                     lose = False
                     for thread in threads:
@@ -270,37 +277,50 @@ while True:
             break
         ################################
 
-        accel = .13
-        if cat.speed() < cat.maxSpeed / 1.5:
-            if L:
-                cat.state[0, 2] = -accel
-            if U:
-                cat.state[1, 2] = -accel
-            if D:
-                cat.state[1, 2] = accel
-            if R:
-                cat.state[0, 2] = accel
+        vel = .5
+        if L:
+            ufo.state[0, 1] = -vel
+        elif R:
+            ufo.state[0, 1] = vel
         else:
-            if L:
-                cat.state[0, 2] = -accel / 2.0
-            if U:
-                cat.state[1, 2] = -accel / 2.0
-            if D:
-                cat.state[1, 2] = accel / 2.0
-            if R:
-                cat.state[0, 2] = accel / 2.0
+            ufo.state[0, 1] = 0
+        if U:
+            ufo.state[1, 1] = -vel
+        elif D:
+            ufo.state[1, 1] = vel
+        else:
+            ufo.state[1, 1] = 0
+        #accel = .13
+        #if ufo.speed() < ufo.maxSpeed / 1.5:
+        #    if L:
+        #        ufo.state[0, 2] = -accel
+        #    if U:
+        #        ufo.state[1, 2] = -accel
+        #    if D:
+        #        ufo.state[1, 2] = accel
+        #    if R:
+        #        ufo.state[0, 2] = accel
+        #else:
+        #    if L:
+        #        ufo.state[0, 2] = -accel / 2.0
+        #    if U:
+        #        ufo.state[1, 2] = -accel / 2.0
+        #    if D:
+        #        ufo.state[1, 2] = accel / 2.0
+        #    if R:
+        #        ufo.state[0, 2] = accel / 2.0
 
-                #####################################################
-                #                   Black Hole Collisions
-                #####################################################
+            #####################################################
+            #                   Black Hole Collisions
+            #####################################################
         wormAffectDist = 150
         for worm in wormholes:
-            if dist(cat, worm.black.centerX(), worm.black.centerY()) < wormAffectDist:
-                worm.black.alterAcc(cat)
-            if dist(cat, worm.white.centerX(), worm.white.centerY()) < wormAffectDist:
-                worm.white.alterAcc(cat)
-            if pygame.sprite.collide_rect(cat, worm.black):
-                threads.append(worm.teleport(worm.black, cat))
+            if dist(ufo, worm.black.centerX(), worm.black.centerY()) < wormAffectDist:
+                worm.black.alterAcc(ufo)
+            if dist(ufo, worm.white.centerX(), worm.white.centerY()) < wormAffectDist:
+                worm.white.alterAcc(ufo)
+            if pygame.sprite.collide_rect(ufo, worm.black):
+                threads.append(worm.teleport(worm.black, ufo))
 
                 #####################################################
         spriteGroup.update()
@@ -315,14 +335,14 @@ while True:
                 if pygame.sprite.collide_rect(a, worm.black):
                     worm.teleport(worm.black, a)
             if a.debounce == 0:
-                if pygame.sprite.collide_rect(cat, a) and not lose:
+                if pygame.sprite.collide_rect(ufo, a) and not lose:
                     a.reverse()
                     a.debounce = 30
                     collisionCount += 1
-                    if not cat.isShielded():
+                    if not ufo.isShielded():
                         playth("explosion.wav")
                         lose = True
-                        cat.kill()
+                        ufo.kill()
                 for b in asteroids:
                     if b is not a:
                         if pygame.sprite.collide_rect(a, b):
@@ -335,10 +355,10 @@ while True:
                                 b.setVelX(tempX + random.uniform(-.3, .3))
                                 b.setVelY(tempY + random.uniform(-.3, .3))
         for l in lazerlist:
-            if pygame.sprite.collide_rect(cat, l) and not lose and not l.charging:
-                if not cat.isShielded():
+            if pygame.sprite.collide_rect(ufo, l) and not lose and not l.charging:
+                if not ufo.isShielded():
                     lose = True
-                    cat.kill()
+                    ufo.kill()
                     playth("explosion.wav")
                     print("u sploded")
             if not l.charging and not l.playedbzz:
@@ -351,26 +371,26 @@ while True:
 
         if score > asteroidthresh and astBool:
             asteroidthresh += 1000
-            if wormBool:
-                asteroids.append(getAsteroidFromWormhole(wormholes[0].white, screenX, screenY))
-                spriteGroup.add(asteroids[-1])
-            else:
-                asteroids.append(getAsteroid(screenX, screenY))
-                spriteGroup.add(asteroids[-1])
+            # if wormBool:
+            #    asteroids.append(getAsteroidFromWormhole(wormholes[0].white, screenX, screenY))
+            #    spriteGroup.add(asteroids[-1])
+            # else:
+            #    asteroids.append(getAsteroid(screenX, screenY))
+            #    spriteGroup.add(asteroids[-1])
 
         if score > lazerthresh and lazBool:
             lazerthresh += 400
             borders = 30
             bordermod = 150
             if random.randint(0, 10) % 2 == 0:
-                lazX = random.randint(int(cat.X() - bordermod), int(cat.X() + bordermod))
+                lazX = random.randint(int(ufo.X() - bordermod), int(ufo.X() + bordermod))
                 if lazX < borders:
                     lazX = borders
                 if lazX > screenX - borders:
                     lazX = borders
                 laz = lazer(lazX, random.choice(lazersounds), 150)
             else:
-                lazY = random.randint(int(cat.Y() - bordermod), int(cat.Y() + bordermod))
+                lazY = random.randint(int(ufo.Y() - bordermod), int(ufo.Y() + bordermod))
                 if lazY < borders:
                     lazY = borders
                 if lazY > screenY - borders:
@@ -381,22 +401,47 @@ while True:
             spriteGroup.add(laz)
 
         screen.blit(background_img, (0, 0))
-        # score = int((endTime - beginningTime) * 100)
-        # score = int(score ** 1.08)
 
         score = total_frames
-
         scoreString = "Score: %r" % (score)
         highScoreString = "High Score: %r" % highScore
-        lineLength = 110
-        spacesString = "".join([" " for sp in range(lineLength - (len(scoreString) + len(highScoreString)))])
-        scoreString = scoreString + spacesString + highScoreString
+        if len(scores) > 0:
+            average_score = sum(scores) / len(scores)
+            averageScoreString = 'Average: {:.1f}'.format(average_score) + ' '
+            lenScoreString = 'i: ' + str(len(scores)) + '  '
+        else:
+            averageScoreString = ''
+            lenScoreString = ''
+        lineLength = 90
+        spacesString = "".join([" " for sp in range(
+            lineLength - (len(scoreString) + len(lenScoreString) + len(averageScoreString) + len(highScoreString)))])
+        scoreString = scoreString + spacesString + lenScoreString + averageScoreString + highScoreString
         colcount = font.render(scoreString, 1, (255, 255, 255))
+
+        if not args.robot:
+            if args.human:
+                if L:
+                    eventsource.append(Event.get_left())
+                if R:
+                    eventsource.append(Event.get_right())
+                if U:
+                    eventsource.append(Event.get_up())
+                if D:
+                    eventsource.append(Event.get_down())
+            if len(eventsource) == 0:
+                eventsource.append(Event.do_nothing())
+            projectiles = copy(asteroids)
+            projectiles.append(ufo)
+            Recorder.record(ufo, asteroids, screenX, screenY, projectiles, eventsource, lose, args)
+
+        if args.human and score > 10000:
+            lose = True
 
         if lose:
             print(score)
             scores.append(score)
-            print('Average: '+str(sum(scores)/len(scores)))
+            average_score = sum(scores) / len(scores)
+            print('Average: ' + str(average_score))
             if score > getHighScore(level - 1):
                 colcount = font.render(
                     "HIGH SCORE! Score: %r          Press Spacebar to try again or M for the menu" % (score), 1,
@@ -405,7 +450,7 @@ while True:
                 colcount = font.render(
                     "You lose! Score: %r          Press Spacebar to try again or M for the menu" % (score), 1,
                     (100, 100, 100))
-            if not args.human:
+            if True:  # not args.human:
                 lose = False
                 for thread in threads:
                     thread.join()
@@ -413,7 +458,8 @@ while True:
                 total_frames = 0
         else:
             endTime = time()
-        if args.human or score % int(args.skip_frames) == 0 or lose:
+
+        if score % int(args.skip_frames) == 0 or lose:
             screen.blit(colcount, (5, 5))
             spriteGroup.draw(screen)
             pygame.display.flip()

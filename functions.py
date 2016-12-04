@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+import itertools
 import numpy as np
 import math
 import pygame
@@ -248,11 +248,19 @@ class Projectile(pygame.sprite.Sprite):
         self.rect.centerx = round(self.X(), 0)
         self.rect.centery = round(self.Y(), 1)
 
+    def serialize(self):
+        list_state = self.state[:,(0,1)].tolist()
+        # flat_state = [str(i) for sublist in list_state for i in sublist]
+        flat_state = list(itertools.chain.from_iterable(list_state))
+        #absolute_velocity = abs(self.getVelX()*self.getVelY())
+        # flat_state.append(absolute_velocity)
+        return ','.join([str(i) for i in flat_state])
+
 
 class Asteroid(Projectile):
     def __init__(self, spriteImg, screen, X, Y, screenX, screenY, which):
         Projectile.__init__(self, spriteImg, screen, X, Y, screenX, screenY)
         self.colldebounce = 0
         self.shielded = -1
-        self.state[0, 1] = float(random.randint(-200, 200)) / 100.0
-        self.state[1, 1] = float(random.randint(-200, 200)) / 100.0
+        self.state[0, 1] = 1#float(random.randint(-200, 200)) / 100.0
+        self.state[1, 1] = 1#float(random.randint(-200, 200)) / 100.0
