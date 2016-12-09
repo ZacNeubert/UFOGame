@@ -10,3 +10,5 @@ Feature Extraction: Because I had access to the source code for this game, I was
 The second set of features I tried was an attempt to make simpler, easier to understand features. The first set of features had too much variation for something like a decision tree to understand. Good results took gigabytes of data to achieve. I separated the play area into a grid. Where before, I gave the exact location of each object, now I would give the learning algorithm a grid, with the UFO’s location marked with a 1 and an asteroid’s location with a 2. A zone containing both will be marked with a 3. This was attempted both containing the velocities of the ufo/asteroid and without them.
 
 To teach the classifiers to win, rather than to imitate a random number generator, all frames within 150 frames of dying were forgotten. Because there are far more good moves than bad in a 1-asteroid scenario, it should be most important to learn the moves that do not kill the player.
+
+![](https://github.com/ZacNeubert/UFOGame/blob/master/stats/humaninputvsrng.png?raw=true)
