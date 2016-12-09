@@ -15,6 +15,7 @@ parser.add_argument('--human', action='store_true')
 parser.add_argument('--random', action='store_true')
 parser.add_argument('--robot', action='store_true')
 parser.add_argument('--skip-frames', default=1)
+parser.add_argument('--asteroid-count', default=1)
 args = parser.parse_args()
 
 threads = []
@@ -152,7 +153,7 @@ while True:
     if astBool:
         asteroids = [
             functions.Asteroid(asteroidImg, screen, random.randint(50, screenX - 50), random.randint(50, screenY - 50),
-                               screenX, screenY, x) for x in range(3)]
+                               screenX, screenY, x) for x in range(int(args.asteroid_count))]
     else:
         asteroids = []
     spriteGroup.add(ufo)

@@ -136,10 +136,14 @@ class Reader:
     @classmethod
     def get_fname(cls):
         if not Reader.filename:
-            files = glob('*2016*txt*')
-            files = [f for f in files if not 'pickle' in f]
-            files = sorted(files)
-            Reader.filename = files[-1]
+            f = input('Reader file: ')
+            if not f:
+                files = glob('*2016*txt*')
+                files = [f for f in files if not 'pickle' in f]
+                files = sorted(files)
+                Reader.filename = files[-1]
+            else:
+                Reader.filename = f
         return Reader.filename
 
     @classmethod

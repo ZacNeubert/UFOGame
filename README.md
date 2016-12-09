@@ -12,6 +12,14 @@ I set about altering the game to make it easier to measure. I changed the number
 Then, I built a template for a machine learning game player. This player would take data produced by the random game player, or a human game player, and produce a keystroke every frame. This template could be filled in by any classifier.
 I then implemented this for many different classifiers. I used several classifiers from Sci-Kit Learn, as well as the Keras wrapper for tensorflow neural networks to test this.
 
+**Challenges:** This game had several things that made it challenging for machine learning to learn well. 
+
+Firstly, the game is slow. To obtain the truth data, the game has to be run for a long time. Much of my time was spent changing the game to gather truth data faster. There are also basically an infinite number of states the game can be in, leading options like a decision tree to be very ineffective with certain feature sets. Thirdly, the original control scheme was based on acceleration, which creates a whole new dimension of states that the UFO can be in at any given time. Finally, the asteroid's collisions have some RNG in them, causing them to change speed sometimes, which can drastically throw off the machine learning if it expects a specific speed.
+
+Iteration was very slow, because of the massive amounts of truth data needed to create a competent AI.
+
+Finally, there are many more okay decisions than bad ones. Generally, it is a series of bad decisions that leads to death in this game. Therefore, it is difficult to classify which decisions are bad ones, especially with more asteroids.
+
 **Feature Extraction:** Because I had access to the source code for this game, I was able to extract the features directly from the objects. I had a few different sets of features to try. The first one was the x and y locations and velocities for both the ufo and the asteroid. 
 
 *Initial Features:* 

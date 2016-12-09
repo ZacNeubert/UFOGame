@@ -10,6 +10,7 @@ from keras.models import Sequential
 from keras.optimizers import SGD
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.externals import joblib
 from sklearn.kernel_approximation import RBFSampler
 from sklearn.linear_model import SGDClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -20,34 +21,38 @@ from MachineLearning.TruthHandler import Reader
 
 class RobotGamePlayer():
     @staticmethod
-    def get(gamestate, classifier_class=None):
+    def get(gamestate, classifier_class=None, args=None):
         gamestate = [float(i) for i in gamestate.split(',')]
         # gamestate = numpy.array(gamestate).reshape(1,-1)
         if not classifier_class:
-            prediction = RandomForestWrapper.get_prediction(gamestate)
-        print(prediction)
+            prediction = Pickled.get_prediction(gamestate)
+        #print(prediction)
         return [Event(pygame.KEYDOWN, p) for p in prediction]
 
 
 class Pickled():
     fname = ''
+    classifier = None
 
     @classmethod
     def get_file_name(cls):
         if not cls.fname:
-            files = glob('*pickle')
-            files = sorted(files)
-            cls.fname = files[-1]
+            #files = glob('*pickle')
+            #files = sorted(files)
+            #cls.fname = files[-1]
+            cls.fname = input('Enter the pickle: ')
         return cls.fname
 
     @classmethod
     def get_classifier(cls):
-        cls.classifier = pickle.load(cls.get_file_name())
+        if not cls.classifier:
+            cls.classifier = joblib.load(cls.get_file_name())
         return cls.classifier
 
     @classmethod
     def get_prediction(cls, game_state):
         chooser = cls.get_classifier()
+        game_state = numpy.array(game_state).reshape(1,-1)
         return chooser.predict(game_state)
 
 class KerasLoaded():
