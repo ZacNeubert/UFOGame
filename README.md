@@ -19,15 +19,14 @@ UFO X Position, UFO Y Position, UFO X Velocity, UFO Y Velocity, Asteroid X Posit
 
 The second set of features I tried was an attempt to make simpler, easier to understand features. The first set of features had too much variation for something like a decision tree to understand. Good results took gigabytes of data to achieve. I separated the play area into a grid. Where before, I gave the exact location of each object, now I would give the learning algorithm a grid, with the UFO’s location marked with a 1 and an asteroid’s location with a 2. A zone containing both will be marked with a 3. This was attempted both containing the velocities of the ufo/asteroid and without them.
 
+*New Features:*
+
 ![New Features](https://github.com/ZacNeubert/UFOGame/blob/master/stats/features2.png?raw=true)
 
 To teach the classifiers to win, rather than to imitate a random number generator, all frames within 150 frames of dying were forgotten. Because there are far more good moves than bad in a 1-asteroid scenario, it should be most important to learn the moves that do not kill the player.
 
-**Results:** The random game player actually did surprisingly well at the game.
-
-Chart Showing the Random Game Player in various game modes
-
-The Random Forest classifier and the Kernelizer from sci-kit learn did fairly well.
+**Results:** 
+The Random Forest classifier and the Kernelizer from sci-kit learn did fairly well, but the Random Forest did better, so I focused on training that.
 
 Chart showing the scores of the kernelizer and random forest classifier in various game modes, vs the number of lines that have learned with.
 ![Results By Asteroid Count](https://github.com/ZacNeubert/UFOGame/blob/master/stats/asteroidcount.png?raw=true)
@@ -39,4 +38,8 @@ Human input was, in general, far better than machine input. This is likely becau
 **Miscellaneous Stats:**
 
 *Laptop Memory Failures:* 2
+
+*Total Truth Files Generated:* 62
+
 *Total Truth Data Generated:* 13.4 GB
+
