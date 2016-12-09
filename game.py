@@ -152,7 +152,7 @@ while True:
     if astBool:
         asteroids = [
             functions.Asteroid(asteroidImg, screen, random.randint(50, screenX - 50), random.randint(50, screenY - 50),
-                               screenX, screenY, x) for x in range(1)]
+                               screenX, screenY, x) for x in range(3)]
     else:
         asteroids = []
     spriteGroup.add(ufo)

@@ -40,8 +40,8 @@ class Recorder:
         serialized = serialized[1:]
         return serialized
 
-    xZones = 32
-    yZones = 24
+    xZones = 8
+    yZones = 6
 
     UFO_INDICATOR = 1
     ASTEROID_INDICATOR = 2
@@ -62,14 +62,18 @@ class Recorder:
         projectiles = copy(asteroids)
         projectiles.append(ufo)
         #for projectile in projectiles:
-        #    if projectile.getVelX() > 0:
+        #    if projectile.getVelX() > 1:
         #        flattened.append(1)
-        #    else:
+        #    elif projectile.getVelX < 1:
         #        flattened.append(-1)
-        #    if projectile.getVelY() > 0:
+        #    else:
+        #        flattened.append(0)
+        #    if projectile.getVelY() > 1:
         #        flattened.append(1)
-        #    else:
+        #    elif projectile.getVelY < 1:
         #        flattened.append(-1)
+        #    else:
+        #        flattened.append(0)
         flattened = [str(i) for i in flattened]
         return ','.join(flattened)
 
@@ -143,6 +147,7 @@ class Reader:
         print('Reading file')
         with open(cls.get_fname(), 'r') as infile:
             lines = infile.readlines()
+        print('Using {} lines'.format(len(lines)))
         print(cls.get_fname())
         # print('Filtering lines')
         # lines = [l for l in lines if len(l.split(',')) == 9]
@@ -150,12 +155,11 @@ class Reader:
         features = []
         for split, i in splits(lines, 100):
             split = [[float(i) for i in l.split(',')[:-1]] for l in split]
-            split = [numpy.array(s).reshape(1,-1) for s in split]
+            #split = [numpy.array(s).reshape(1,-1) for s in split]
             features += split
             print('Finished split {}'.format(i))
         # features = [numpy.array(f).reshape(1, -1) for f in features]
         print('extracting actions')
         actions = [int(l.split(',')[-1]) for l in lines]
         print('Returning from get_data')
-        print('Using {} lines'.format(len(features)))
         return features, actions

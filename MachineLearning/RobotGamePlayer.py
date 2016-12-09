@@ -24,9 +24,9 @@ class RobotGamePlayer():
         gamestate = [float(i) for i in gamestate.split(',')]
         # gamestate = numpy.array(gamestate).reshape(1,-1)
         if not classifier_class:
-            prediction = KerasNN.get_prediction(gamestate)
+            prediction = RandomForestWrapper.get_prediction(gamestate)
         print(prediction)
-        return [Event(pygame.KEYDOWN, prediction)]
+        return [Event(pygame.KEYDOWN, p) for p in prediction]
 
 
 class Pickled():
@@ -215,6 +215,8 @@ class RandomForestWrapper():
             cls.classifier = RandomForestClassifier()
             print('Training classifier')
             cls.classifier.fit(cls.features, cls.actions)
+            with open(Reader.get_fname()+'.pickle', 'wb') as f:
+                pickle.dump(cls.classifier, file=f)
         return cls.classifier
 
     @classmethod
@@ -224,4 +226,10 @@ class RandomForestWrapper():
         # if none is most probable, use that
         # else get top three keys
             #Pick the middle key from that
-        return chooser.predict(game_state)
+        picked = []
+        for i,p in enumerate(probs[0:1][0]):
+            if p > .35:
+                picked.append(chooser.classes_[i])
+        if not picked or len(picked) == 1:
+            return [chooser.predict(game_state)]
+        return picked

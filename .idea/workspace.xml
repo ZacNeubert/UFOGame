@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dce00bf5-4fb3-43d9-9d56-db7e9de8aef0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MachineLearning/TruthHandler.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MachineLearning/GamePlayer.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/UFO.iml" afterPath="$PROJECT_DIR$/.idea/UFO.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MachineLearning/Event.py" afterPath="$PROJECT_DIR$/MachineLearning/Event.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MachineLearning/RandomGamePlayer.py" afterPath="$PROJECT_DIR$/MachineLearning/RandomGamePlayer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py" afterPath="$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.py" afterPath="$PROJECT_DIR$/functions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MachineLearning/TruthHandler.py" afterPath="$PROJECT_DIR$/MachineLearning/TruthHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.py" afterPath="$PROJECT_DIR$/game.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highscore.txt" afterPath="$PROJECT_DIR$/highscore.txt" />
     </list>
@@ -25,11 +19,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/UFO$Robot.coverage" NAME="Robot Coverage Results" MODIFIED="1480817624660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UFO$Robot.coverage" NAME="Robot Coverage Results" MODIFIED="1481072367938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/UFO$Unnamed.coverage" NAME="Human Coverage Results" MODIFIED="1478484951687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/UFO$Human.coverage" NAME="Human Coverage Results" MODIFIED="1480817064902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/UFO$Random.coverage" NAME="Random Coverage Results" MODIFIED="1480817351411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/UFO$Robot_Get_Average.coverage" NAME="Robot Get Average Coverage Results" MODIFIED="1480884403737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UFO$Random.coverage" NAME="Random Coverage Results" MODIFIED="1481083517976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UFO$Human.coverage" NAME="Human Coverage Results" MODIFIED="1481086403821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UFO$Robot_Get_Average.coverage" NAME="Robot Get Average Coverage Results" MODIFIED="1481090684227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -42,25 +36,14 @@
     <splitter split-orientation="horizontal" split-proportion="0.4891008">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="TruthHandler.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="TruthHandler.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/MachineLearning/TruthHandler.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="581">
-                  <caret line="148" column="35" lean-forward="false" selection-start-line="148" selection-start-column="35" selection-end-line="148" selection-end-column="35" />
+                <state relative-caret-position="2826">
+                  <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#29#0" expanded="true" />
-                    <marker date="1480883241838" expanded="true" signature="1808:2080" ph="..." />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tree.py" pinned="false" current-in-tab="false">
-            <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/tree/tree.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="6750">
-                  <caret line="402" column="0" lean-forward="false" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -75,6 +58,28 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/game.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3564">
+                  <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="defmatrix.py" pinned="false" current-in-tab="true">
+            <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/matrixlib/defmatrix.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="174">
+                  <caret line="342" column="0" lean-forward="false" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -82,8 +87,8 @@
           <file leaf-file-name="RobotGamePlayer.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="366">
-                  <caret line="95" column="33" lean-forward="false" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
+                <state relative-caret-position="1153">
+                  <caret line="233" column="39" lean-forward="false" selection-start-line="233" selection-start-column="39" selection-end-line="233" selection-end-column="39" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -101,14 +106,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/game.py">
+          <file leaf-file-name="highscore.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/highscore.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5076">
-                  <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="90">
+                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -116,8 +119,8 @@
           <file leaf-file-name="functions.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/functions.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4626">
-                  <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+                <state relative-caret-position="1674">
+                  <caret line="100" column="13" lean-forward="false" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
                   <folding>
                     <element signature="e#18#34#0" expanded="true" />
                   </folding>
@@ -158,8 +161,8 @@
         <option value="$PROJECT_DIR$/MachineLearning/Event.py" />
         <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/highscore.txt" />
-        <option value="$PROJECT_DIR$/game.py" />
         <option value="$PROJECT_DIR$/MachineLearning/TruthHandler.py" />
+        <option value="$PROJECT_DIR$/game.py" />
         <option value="$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py" />
       </list>
     </option>
@@ -172,8 +175,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1920" />
-    <option name="width" value="1916" />
-    <option name="height" value="1084" />
+    <option name="width" value="2530" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -191,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,7 +256,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,7 +265,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/Documents/Work/node/node-v6.9.1-linux-x64/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="SearchEverywhereHistoryKey" value="func&#9;FILE&#9;file:///data/Git/Education/UFO/functions.py&#10;projectile&#9;null&#9;null&#10;game&#9;FILE&#9;file:///data/Git/Education/UFO/game.py&#10;Projectile&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="projectile&#9;null&#9;null&#10;func&#9;FILE&#9;file:///data/Git/Education/UFO/functions.py&#10;game&#9;FILE&#9;file:///data/Git/Education/UFO/game.py&#10;Projectile&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -487,6 +490,24 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="Human Fast" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="UFO" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/game.py" />
+      <option name="PARAMETERS" value="--human --skip-frames 10" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
     <configuration default="false" name="Human" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -559,11 +580,12 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.Human" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Robot" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Robot Get Average" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Random" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.Human Fast" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Human" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Robot" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Robot Get Average" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Random" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -594,7 +616,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478491370591</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="So many changes. AI stuff.">
+      <created>1480884640785</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480884640785</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -607,28 +636,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1916" height="1084" extended-state="4" />
-    <editor active="true" />
+    <frame x="1920" y="0" width="2530" height="1440" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16487648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16465378" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45067498" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42990655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44963655" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3852544" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42886811" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +677,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Renamed some bad classes / variables." />
     <MESSAGE value="Added left out files for PyCharm." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added left out files for PyCharm." />
+    <MESSAGE value="So many changes. AI stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="So many changes. AI stuff." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -657,11 +687,6 @@
           <url>file://$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py</url>
           <line>50</line>
           <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py</url>
-          <line>72</line>
-          <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py</url>
@@ -677,7 +702,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="104" />
+      <option name="time" value="108" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -752,7 +777,6 @@
           <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <marker date="1480883241838" expanded="true" signature="1808:2080" ph="..." />
           </folding>
         </state>
       </provider>
@@ -938,13 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/utils/validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/ensemble/forest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -959,24 +976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/matrixlib/defmatrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="342" column="0" lean-forward="false" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/dist-packages/keras/engine/training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highscore.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -989,17 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6750">
           <caret line="402" column="0" lean-forward="false" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5076">
-          <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,31 +1004,63 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MachineLearning/GamePlayer.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="409" column="22" lean-forward="false" selection-start-line="409" selection-start-column="22" selection-end-line="409" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4626">
-          <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+        <state relative-caret-position="1674">
+          <caret line="100" column="13" lean-forward="false" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
           <folding>
             <element signature="e#18#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/highscore.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MachineLearning/TruthHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="148" column="35" lean-forward="false" selection-start-line="148" selection-start-column="35" selection-end-line="148" selection-end-column="35" />
+        <state relative-caret-position="2826">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <marker date="1480883241838" expanded="true" signature="1808:2080" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3564">
+          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/matrixlib/defmatrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="342" column="0" lean-forward="false" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MachineLearning/RobotGamePlayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="95" column="33" lean-forward="false" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
+        <state relative-caret-position="1153">
+          <caret line="233" column="39" lean-forward="false" selection-start-line="233" selection-start-column="39" selection-end-line="233" selection-end-column="39" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

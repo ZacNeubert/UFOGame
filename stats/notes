@@ -1,0 +1,78 @@
+Random Baseline: 1317 frames over 57 runs
+
+1 Asteroid w/ random velocity
+    177177 lines (human):
+        Random forest: 1843 frames over 56 runs
+        Kernelizer: 1765 frames over 56 runs
+        Decision Tree: 1385 over 63 runs
+        SGD Classifier: Does not move. Pretty good though.
+    177177 Human + ~100000 Robot:
+        Random Forest: 1967 frames over 61 runs
+        Kernelizer: 2394 frames over 56 runs
+        SGD: Still does not move
+    177177 Human + ~225000 Robot:
+        Random Forest: 1591 frames over 29 runs
+        Kernelizer: 1718 frames over 64 runs
+        SGD: Does not move
+    295000 Human:
+        Random Forest: 1439 69
+        Kernelizer: 1748 68
+        SGD: 
+
+1-asteroid, velocity based
+Random avg: 2789 frames (zone-based AI)
+    Total training data: 973000 lines
+RandomForest: i33 6379
+    high score 82215 
+
+2-asteroid, velocity based
+Random avg: 1276 i84 (zone-based)
+RandomForest: 1701 i81
+    high score: 31353
+
+3-asteroid, velocity based
+Random avg: 954 i2066
+    high score: 5785
+RandomForest: 
+    lines: 410410 RANDOM
+        avg: 837 i59
+        high score: 12038
+    lines: 823823 RANDOM
+        avg: 884 i93
+        high score: 5856
+    lines: 1112111 RANDOM
+        avg: 1148 i59
+        high score: 5992
+    lines: 1363362 RANDOM
+        avg: 1234 i63
+        high score: 6243
+    lines: 1644643 RANDOM
+        avg: 970.8 i158
+        high score: 5936
+    lines: 24000 HUMAN
+        avg: 1025 i66
+        high score: ?
+    lines: 64000 HUMAN
+        avg: 1161 i82
+        high score: ?
+    lines: 64000 HUMAN .4 thresh
+        avg: 1706 i27
+        high score: ?
+    lines: 64000 HUMAN .3 thresh
+        avg: 981 i128
+        high score: ?
+
+4-asteroid, velocity based
+Random avg: 693 i2242
+RandomForest: 
+    lines: 1248247
+        avg: 653 i145
+        high score: 6686
+    lines: 1551550
+        avg: 632 i96
+        high score: 3272
+
+5-asteroid, velocity based
+Random avg: 574 i900 (zone-based)
+RandomForest: 561 i1091
+    high score ?
