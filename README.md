@@ -41,7 +41,8 @@ To teach the classifiers to win, rather than to imitate a random number generato
 ##Results:
 The Random Forest classifier and the Kernelizer from sci-kit learn did fairly well, but the Random Forest did better, so I focused on training that.
 
-Chart showing the scores of the kernelizer and random forest classifier in various game modes, vs the number of lines that have learned with.
+It is important to note that the game gets exponentially harder to learn the more asteroids that are added. Each added asteroid adds another dimension of possible situations, requiring exponentially more truth data. Here are the results of the trained classifier and random player with various asteroid counts.
+
 ![Results By Asteroid Count](https://github.com/ZacNeubert/UFOGame/blob/master/stats/asteroidcount.png?raw=true)
 
 Human input was, in general, far better than machine input. This is likely because I had already learned the game, and was able to input the best keystrokes rather than just the ones that will survive.
